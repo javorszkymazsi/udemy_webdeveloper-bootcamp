@@ -1,0 +1,87 @@
+body {
+	padding-top: 70px;
+}
+
+.jumbotron {
+	background: #c2f9f0;
+	color: #e27cbb;
+}
+
+.navbar-inverse {
+	background: #db4ea5;	
+}
+
+.navbar-inverse .navbar-nav>li>a,
+.navbar-inverse .navbar-brand {
+	color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-brand:hover {
+	color: #04f2ca;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.image1 {
+	background-image: url("img/antoine-beauvillain-17799.jpg");
+}
+
+.image2 {
+	background-image: url("img/anton-repponen-109642.jpg");
+}
+
+.image3 {
+	background-image: url("img/dan-gold-223935.jpg");
+}
+
+.image4 {
+	background-image: url("img/george-bohunicky-118985.jpg");
+}
+
+.image5 {
+	background-image: url("img/jeremy-bishop-211453.jpg");
+}
+
+.image6 {
+	background-image: url("img/kris-atomic-73935.jpg");
+}
+
+.image7 {
+	background-image: url("img/lily-lvnatikk-258429.jpg");
+}
+
+.image8 {
+	background-image: url("img/samuel-zeller-15627.jpg");
+}
+
+.image9 {
+	background-image: url("img/scott-webb-12981.jpg");
+}
+
+.image10 {
+	background-image: url("img/scott-webb-98682.jpg");
+}
+
+.image11 {
+	background-image: url("img/sean-afnan-244576.jpg");
+}
+
+.image12 {
+	background-image: url("img/victoria-bilsborough-232767.jpg");
+}
+
+
+fa-camera-retro {
+	font-size: 20px;
+}

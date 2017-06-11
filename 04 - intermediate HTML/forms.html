@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registration form</title>
+	</head>
+	<body>
+		<h1>Register</h1>
+		<form>
+			<p>
+				<label for="firstName">First Name: </label>
+				<input name="firstName" id="firstName" type="text" placeholder="Neil" required>
+				
+				<label for="lastName">Last Name: </label>
+				<input name="lastName" id="lastName" type="text" placeholder="Gaiman" required>	
+			</p>
+			
+			<p>
+				<label for="lastName">Sex: </label>
+
+				<label for="male">Male </label>
+				<input name="sex" id="male" type="radio" value="MALE" required>
+
+				<label for="female">Female </label>
+				<input name="sex" id="female" type="radio" value="FEMALE">
+
+				<label for="other">Other </label>
+				<input name="sex" id="other" type="radio" value="OTHER">
+			</p>
+
+			<p>
+				<label for="email">Email: </label>
+				<input name="email" id="email" type="email" placeholder="example@gmail.com">
+
+				<label for="password">Password: </label>
+				<input name="password" id="password" type="password" placeholder="pa$$w0rd" minlength="8" maxlength="20">
+			</p>
+			
+
+			<input name="submit" id="lastName" type="submit">
+		</form>
+	</body>
+</html>
