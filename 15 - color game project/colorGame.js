@@ -1,5 +1,25 @@
 var howManySquares = 6;
 var squares = [];
+var modeButtons = document.querySelectorAll(".mode");
+
+for (var i = 0; i < modeButtons.length; ++i) {
+	modeButtons[i].addEventListener("click", function() {
+		for (var j = 0; j < modeButtons.length; ++j) {
+			if (i !== j) {
+				modeButtons[j].classList.remove("selected");
+			}
+		}		
+		this.classList.add("selected");
+		putSquaresBackToDefault();
+		if (document.getElementById("easy") === this) {
+			disableBottomRowButtons();
+			howManySquares = 3;
+		} else if (document.getElementById("hard") === this) {
+			howManySquares = 6;
+		}
+		resetGame();
+	})
+}
 
 generateRandomSquares();
 var selectedColor = selectColor();
@@ -8,23 +28,6 @@ assessUserGuess();
 document.querySelector("#newColors").addEventListener("click", function() {
 	document.querySelector("#newColors").textContent = "New colors";
 	document.querySelector("#correct").textContent = "";
-	resetGame();
-});
-
-document.querySelector("#easy").addEventListener("click", function() {
-	document.querySelector("#hard").classList.remove("selected");
-	document.querySelector("#easy").classList.add("selected");
-	putSquaresBackToDefault();
-	disableBottomRowButtons();
-	howManySquares = 3;
-	resetGame();
-});
-
-document.querySelector("#hard").addEventListener("click", function() {
-	document.querySelector("#easy").classList.remove("selected");
-	document.querySelector("#hard").classList.add("selected");	
-	putSquaresBackToDefault();
-	howManySquares = 6;
 	resetGame();
 });
 
@@ -57,6 +60,12 @@ function assessUserGuess() {
 	}
 }
 
+function freezeSquares() {
+	for (var i = 0; i < squares.length; ++i) {
+		squares[i].removeEventListener("click", clickEvent);		
+	}
+}
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -86,6 +95,7 @@ function clickEvent() {
 			item.style.backgroundColor = selectedColor.style.backgroundColor;
 		});
 		document.querySelector("#correct").textContent = "Correct!";
+		freezeSquares();
 		document.querySelector("h1").style.backgroundColor = selectedColor.style.backgroundColor;
 		document.querySelector("#newColors").textContent = "Play again?";
 	} else {
