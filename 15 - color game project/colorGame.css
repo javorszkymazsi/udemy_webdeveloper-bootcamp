@@ -4,7 +4,7 @@ body {
 	font-family: 'Julius Sans One', sans-serif;
 }
 
-h1, p {
+h1 {
 	color: white;
 	text-align: center;
 	background-color: steelblue;
@@ -23,6 +23,15 @@ h1, p {
 	color: black;
 	display: inline-block;
 	width: 20%;
+	padding-left: 5%;
+}
+
+#buttons {
+	padding-left: 5%;
+}
+
+#newColors {
+	margin-left: 10%;
 }
 
 .square {
@@ -37,10 +46,20 @@ h1, p {
 	-moz-transition: background 0.6s;
 }
 
+#scoreBoard {
+	color: white;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+#score {
+	
+}
+
 .stripe {
 	background-color: white;
 	height: 30px;
-	text-align: center;
+	text-align: center;	
 }
 
 #container {
