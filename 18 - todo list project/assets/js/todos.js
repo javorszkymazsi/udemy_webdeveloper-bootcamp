@@ -1,6 +1,6 @@
 $("input[type='text']").on("keypress", function(event) {
 	if (event.which === 13) {
-		$("#todoList").append("<li><span>X</span> " + $(this).val() + "</li>");
+		$("#todoList").append('<li><span><i class="fa fa-trash-o" aria-hidden="true"></i></span> ' + $(this).val() + '</li>');
 		$(this).val("");
 	}
 });
@@ -10,9 +10,12 @@ $("ul").on("click", "li", function() {
 });
 
 $("ul").on("click", "li span", function(event) {
-	$("#doneList").append("<li>" + $(this).parent().text() + "</li>");
-	$(this).parent().fadeOut(500, function() {
+	$(this).parent().fadeOut(300, function() {
 		$(this).remove();
 	});
 	event.stopPropagation();
+});
+
+$(".fa-plus").on("click", function() {
+	$("input").fadeToggle(300);
 });
