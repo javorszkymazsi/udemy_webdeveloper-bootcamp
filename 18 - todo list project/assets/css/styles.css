@@ -71,7 +71,8 @@ input:focus {
 }
 
 .fa-plus {
-	float: right;	
+	float: right;
+	padding-top: 2px;
 }
 
 #container {
