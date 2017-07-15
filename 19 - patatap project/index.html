@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <title>Patatap Clone</title>
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<script type="text/javascript" src="paper-full.js"></script>
-		<script type="text/paperscript" canvas="canvas">
-			for (var x = 0; x < 20; ++x) {
-				for (var y = 0; y < 20; ++y) {
-					new Path.Circle(new Point(x*50, y*50), 5).fillColor = "rgb(255, 160, " + x*20 + ")";
-				}
-			}
+  <head>
+    <title>Patatap Clone</title>
+      <link rel="stylesheet" type="text/css" href="styles.css">
+      <script type="text/javascript" src="paper-full.js"></script>
+      <script src="howler.js"></script>
+      <script type="text/paperscript" canvas="canvas">
+        var circles = [];
 
-		</script>
-	</head>
-	<body>
-		<canvas id="canvas" resize></canvas>
-	</body>
+        var sound = new Howl({
+          src: ['sounds/bubbles.mp3']
+        });
+        
+        function onKeyDown(event) {
+          if (circles.length === 20) {
+              circles.forEach(function(item) {
+                  item.fillColor = "black";
+              });
+              circles = [];
+          }          
+          var newCircle = new Path.Circle(new Point(generateRandomInt(50, view.size.width - 50), generateRandomInt(50, view.size.height - 50)), generateRandomInt(50, 500));
+          newCircle.fillColor = "rgb(" + generateRandomInt(0, 255) + ", " + generateRandomInt(0, 255) + ", " + generateRandomInt(0, 255) + ")";
+          if (event.key === 'a') {
+            sound.play();
+          }
+          circles.push(newCircle);
+          
+        }
+
+        function onFrame(event) {   
+          for (var i = 0; i < circles.length; ++i) {
+              circles[i].fillColor.hue += 1;
+              circles[i].scale(.85);
+          }               
+        }
+
+        function generateRandomInt(min, max) {
+          return Math.floor(Math.random()*(max-min+1)+min);
+        }           
+      </script>
+  </head>
+  <body>
+    <canvas id="canvas" resize></canvas>
+  </body>
 </html>
